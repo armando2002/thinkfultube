@@ -36,6 +36,11 @@ function renderResult(result) {
 
 // function to add each HTML Div to page using .html
 function displayGitHubSearchData(data) {
+	// grab # of results (this doesn't seem to be working properly yet)
+	const numResults = `<div> <p> ${data.pageInfo.resultsPerPage} </p> </div>`;
+	// add results number to page
+	$('.js-numResults').html(numResults);
+	// add results to page
 	const results = data.items.map((item, index) => renderResult(item));
 	$('.js-search-results').html(results);
 }
